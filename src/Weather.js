@@ -5,44 +5,62 @@ export default function Weather () {
     return (
         <div className="Weather">
                 <form>
-                    <input type="search" placeholder="Enter a city" />
+                    <input type="search" placeholder="Enter a city" className="Input"/>
                     <input type="submit" value="Search" className="Button" />
                     <input type="submit" value="📍 Current Location" className="Button" />
                 </form>
-            <div>
+            <div className="City">
                 <h1>Lisbon</h1>
-                <h3>Saturday, 13 February</h3>
+                <p>Saturday, 13 February</p>
             </div>
             <div className="row">
-                <div className="col-4">
+                <div className="col-2 icon">
                     image
                 </div>
-                <div className="col-2">
-                    <h1 className="currentTemp">20 ºC</h1>
-                    <h3>description</h3>
+                <div className="col-2 main">
+                    <div><h1 className="mainTemp">21º</h1></div>
+                    <div className="description">Sunny</div>
                 </div>
                 <div className="col-2">
                     <div className="row">
-                        high
+                         <ul>
+                            <li>19º</li>
+                            <li>Maximum</li>
+                        </ul>
                     </div>
                     <div className="row">
-                        low
+                        <ul>
+                            <li>15º</li>
+                            <li>Minimum</li>
+                        </ul>
                     </div>
                 </div>
                 <div className="col-2">
                      <div className="row">
-                        Precipitation
+                        <ul>
+                            <li>20%</li>
+                            <li>Precipitation</li>
+                        </ul>
                     </div>
                     <div className="row">
-                        Humidity
+                        <ul>
+                            <li>60%</li>
+                            <li>Humidity</li>
+                        </ul>
                     </div>
                 </div>
                 <div className="col-2">
                      <div className="row">
-                        Wind
+                        <ul>
+                            <li>2 km/h</li>
+                            <li>Wind</li>
+                        </ul>
                     </div>
                     <div className="row">
-                        something else
+                        <ul>
+                            <li>2 km/h</li>
+                            <li>Wind</li>
+                        </ul>
                     </div>
                 </div>
             </div>

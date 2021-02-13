@@ -1,0 +1,52 @@
+.Weather form {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.Input {
+  border-radius: 5px;
+  width: 300px;
+  border: 3px solid #0c2b90;
+}
+
+.Button {
+  border-radius: 5px;
+  margin-left: 6px;
+  margin-right: 3px;
+  border: 3px solid #0c2b90;
+}
+
+.City {
+  text-align: left;
+}
+
+.City p {
+  font-size: 23px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  vertical-align: middle;
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.mainTemp {
+  font-size: 70px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+ul {
+  vertical-align: middle;
+  list-style: none;
+  text-align: left;
+  font-size: 20px;
+  padding-top: 15px;
+}
