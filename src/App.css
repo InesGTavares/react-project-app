@@ -10,3 +10,8 @@ footer {
   text-align: left;
   padding-top: 50px;
 }
+
+a {
+  color: white;
+  text-decoration: underline;
+}
