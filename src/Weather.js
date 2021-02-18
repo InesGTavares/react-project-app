@@ -1,10 +1,11 @@
 import React, { useState } from "react"; 
-import FormDate from "./FormDate"
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css" 
 
 export default function Weather (props) {
     const [weatherData, setWeatherData]=useState({ready: false});
+    const [city, setCity]=useState(props.defaultCity);
     function handleResponse(response) {
         console.log(response.data);
         setWeatherData({
@@ -22,77 +23,33 @@ export default function Weather (props) {
         }); 
     }
 
+     function search () {
+        const apiKey = "fbdebe859d92ee367c7d2b2e8432820e";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+
+    function handleSubmit (event) {
+        event.preventDefault();
+        search();
+    }
+
+    function handleCityChange (event) {
+        setCity(event.target.value);
+    }
+    
     if (weatherData.ready) {
         return (
         <div className="Weather">
-                <form>
-                    <input type="search" placeholder="Enter a city" className="Input"/>
+                <form onSubmit={handleSubmit}>
+                    <input type="search" placeholder="Enter a city" className="Input" onChange={handleCityChange}/>
                     <input type="submit" value="Search" className="Button" />
                     <input type="submit" value="📍 Current Location" className="Button" />
                 </form>
-            <div className="City">
-                <h1>Lisbon</h1>
-                <p><FormDate date={weatherData.date}/></p>
-            </div>
-            <div className="row">
-                <div className="col-2 icon">
-                    image
-                </div>
-                <div className="col-2 main">
-                    <div><h1 className="mainTemp">{Math.round(weatherData.temperature)}º</h1></div>
-                    <div className="description">{weatherData.description}</div>
-                </div>
-                <div className="col-2">
-                    <div className="row">
-                         <ul>
-                            <li>{Math.round(weatherData.maxTemp)}º</li>
-                            <li>Maximum</li>
-                        </ul>
-                    </div>
-                    <div className="row">
-                        <ul>
-                            <li>{Math.round(weatherData.minTemp)}º</li>
-                            <li>Minimum</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="col-2">
-                     <div className="row">
-                        <ul>
-                            <li>{weatherData.pressure} hPa</li>
-                            <li>Pressure</li>
-                        </ul>
-                    </div>
-                    <div className="row">
-                        <ul>
-                            <li>{weatherData.humidity}%</li>
-                            <li>Humidity</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="col-2">
-                     <div className="row">
-                        <ul>
-                            <li>{Math.round(weatherData.wind)} km/h</li>
-                            <li>Wind</li>
-                        </ul>
-                    </div>
-                    <div className="row">
-                        <ul>
-                            <li>{Math.round(weatherData.feelsLike)}º</li>
-                            <li>Feels like</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            </div>
-    ); 
+        <WeatherInfo data={weatherData}/>
+        </div>)
     } else {
-        const apiKey = "fbdebe859d92ee367c7d2b2e8432820e";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
-
+        search();
         return "Loading...";
     }
-    
 }
