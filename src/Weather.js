@@ -10,10 +10,11 @@ export default function Weather (props) {
         console.log(response.data);
         setWeatherData({
             ready: true,
-            date: new Date(response.data.dt*1000),
+            date: new Date(response.data.dt * 1000),
             city: response.data.name,
             temperature: response.data.main.temp,
             description: response.data.weather[0].description,
+            icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
             maxTemp: response.data.main.temp_max,
             minTemp: response.data.main.temp_min,
             pressure: response.data.main.pressure,
