@@ -1,6 +1,7 @@
 import React from "react";
 import FormDate from "./FormDate";
 import WeatherIcon from "./WeatherIcon";
+import Temperature from "./Temperature"; 
 
 export default function WeatherInfo (props) {
     return (
@@ -15,7 +16,7 @@ export default function WeatherInfo (props) {
                     
                 </div>
                 <div className="col-2 main">
-                    <div><h1 className="mainTemp">{Math.round(props.data.temperature)}º</h1></div>
+                    <Temperature celsius={props.data.temperature}/>
                     <div className="description">{props.data.description}</div>
                 </div>
                 <div className="col-2">
