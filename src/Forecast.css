@@ -1,9 +1,20 @@
-.forecast {
+.Forecast {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 55px;
 }
 
-.forecast canvas {
-  width: 80px;
-  padding: 10px auto;
+.forecastIcon canvas {
+  width: 70px;
+}
+
+.col {
+  border: 1px solid rgb(2, 0, 36, 1);
+  background: linear-gradient(
+    rgba(2, 0, 36, 1) 20%,
+    rgba(14, 14, 125, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  background-attachment: fixed;
+  padding: 15px 0;
+  margin: -10px 15px;
 }
