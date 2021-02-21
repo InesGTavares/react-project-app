@@ -12,6 +12,6 @@ export default function FormDate(props) {
         minutes=`0${minutes}`;
     }
     return <div>
-        {day} {hours}:{minutes}
+       Last update: <strong>{day} {hours}:{minutes}</strong> 
     </div>
 }

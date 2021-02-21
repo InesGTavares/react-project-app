@@ -1,0 +1,9 @@
+.forecast {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.forecast canvas {
+  width: 80px;
+  padding: 10px auto;
+}
